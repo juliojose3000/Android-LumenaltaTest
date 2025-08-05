@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "LumenaltaTest"
 include(":app")
- 
+include(":domain")
+include(":data")
+include(":presentation")
