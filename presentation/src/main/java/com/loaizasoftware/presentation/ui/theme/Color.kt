@@ -1,4 +1,4 @@
-package com.loaizasoftware.lumenaltatest.ui.theme
+package com.loaizasoftware.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

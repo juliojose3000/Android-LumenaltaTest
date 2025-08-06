@@ -1,4 +1,4 @@
-package com.loaizasoftware.lumenaltatest.ui.theme
+package com.loaizasoftware.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
