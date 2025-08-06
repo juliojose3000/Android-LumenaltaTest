@@ -1,21 +1,24 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose) //Enable Compose
 
     id("com.google.devtools.ksp")  //Kotlin Symbol Processing
     id("com.google.dagger.hilt.android")
+
 }
 
 android {
-    namespace = "com.loaizasoftware.presentation"
+    namespace = "com.loaizasoftware.lumenaltatest"
     compileSdk = 35
 
     defaultConfig {
+        applicationId = "com.loaizasoftware.lumenaltatest"
         minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,7 +38,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
-        compose = true
+        dataBinding = true
     }
 }
 
@@ -46,22 +49,18 @@ dependencies {
     // ------------------------------------------------------
 
     implementation(project(":domain"))
+    implementation(project(":data"))
 
     // ----------------------------
     // 🔷 ANDROID X
     // ----------------------------
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0") // Lifecycle ViewModel
-
-    // ----------------------------
-    // 🧩 COMPOSE CORE
-    // ----------------------------
-    implementation(platform("androidx.compose:compose-bom:2024.03.00")) // Compose BOM (manages all Compose versions)
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.material3:material3") //To use Box, Column, Row, Scaffold, etc
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.activity:activity-compose:1.10.1") //To use setContent {} in activities
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
 
     // ------------------------------------------------------
@@ -72,8 +71,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.56.2")
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
 
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }

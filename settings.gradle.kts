@@ -20,7 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "LumenaltaTest"
-include(":app")
+include(":presentation")
 include(":domain")
 include(":data")
-include(":presentation")
